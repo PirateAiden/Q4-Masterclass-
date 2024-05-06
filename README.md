@@ -128,11 +128,29 @@ Followed by the tags:
 ______________________________________________
  PROCCES TO SSH TO A MACHINE YOUR NOT ALLOWED TO BE ON USING SMB
 
- First run an Nmap scan to find out open ports running SMB then use | smbclient //[IP]/[SHARE] | commnad line to find a share which can be logged into to (e.x.p a share like profiles ect)   once you SMB into a share look for anything you can use to use to SSH into the target machine. For example lets say you find a file which acknlodeges SHH find out what kind of files Directory SHH has. For the example lets say there a file in which hold an enctrpyted key to gain acces to SHH your going to want to dowload that file with mget* . then go to root machine and chmod 600 [file name] once that is done you SHH with the this command line | ssh -i [file in which key is in] [username]@[Ip] then you have acces to the machine
+ First run an Nmap scan to find out open ports running SMB then use | smbclient //[IP]/[SHARE] | commnad line to find a share which can be logged into to (e.x.p a share like profiles ect...)   once you SMB into a share look for anything you can use to use to SSH into the target machine. For example lets say you find a file which acknlodeges SHH find out what kind of files Directory SHH has. For the example lets say there a file in which hold an enctrpyted key to gain acces to SHH your going to want to dowload that file with mget* . then go to root machine and chmod 600 [file name] once that is done you SHH with the this command line | ssh -i [file in which key is in] [username]@[Ip] then you have acces to the machine
 
               ----------------- This is extremly waterd down but idea and pricnple is there --------------------------
 
 
+
+
+What is Telnet?
+
+Telnet is an application protocol which allows you, with the use of a telnet client, to connect to and execute commands on a remote machine that's hosting a telnet server.
+
+The telnet client will establish a connection with the server. The client will then become a virtual terminal- allowing you to interact with the remote host.
+
+
+
+------------------------------------------------------------------------------------------------------------
+
+
+
+
+How does Telnet work?
+
+The user connects to the server by using the Telnet protocol, which means entering "telnet" into a command prompt. The user then executes commands on the server by using specific Telnet commands in the Telnet prompt. You can connect to a telnet server with the following syntax: "telnet [ip] [port]"
 
 
 
