@@ -158,10 +158,42 @@ The user connects to the server by using the Telnet protocol, which means enteri
 
 
 
+_-----------_------_------------------_--------_---
+
+
+What is FTP?
+
+File Transfer Protocol (FTP) is, as the name suggests , a protocol used to allow remote transfer of files over a network. It uses a client-server model to do this
 
 
 
 
+Active vs Passive
+
+The FTP server may support either Active or Passive connections, or both. 
+
+In an Active FTP connection, the client opens a port and listens. The server is required to actively connect to it. 
+In a Passive FTP connection, the server opens a port and listens (passively) and the client connects to it. 
+
+
+HOW TO EXPLOUT FTP
+_----------------_
+
+Lets assume that we ran an Nmap scan and we see that Port 21 is running a FTP serive and we see from the scan that its version is ftp-anon indacting that it can be logged into anonymously, we use this information to log on and find that there a file laying around called PUBLIC_NOTICE.txt which is letting everyone know that there will be a service on the server. Whoever wrote this used FTP to share it accros a large platform and at the bottom of this note he left his name, "Mike" which we can safly assume is his log in username once we have this infomration we run a Hydra brute force attack to crack his password [SYNATX for hydra hydra -t 4 -l dale -P /usr/share/wordlists/rockyou.txt -vV 10.10.10.6 ftp]
+Ip will vary from thr machine you are attacking along with the -l which is the username [so from dale ---> mike]. once this is completed we have his password and full access for the machine and sever.  
+
+Syntax for FTP for a server is [ ftp [ip] ]
+
+--------------------------- Water down but idea and excution along side with synatx is there ---------------------------------------
+
+
+
+
+
+
+What is NFS?
+
+NFS stands for "Network File System" and allows a system to share directories and files with others over a network. By using NFS, users and programs can access files on remote systems almost as if they were local files. It does this by mounting all, or a portion of a file system on a server. The portion of the file system that is mounted can be accessed by clients with whatever privileges are assigned to each file.
 
 
 
