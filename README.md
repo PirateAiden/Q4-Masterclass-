@@ -182,7 +182,7 @@ _----------------_
 Lets assume that we ran an Nmap scan and we see that Port 21 is running a FTP serive and we see from the scan that its version is ftp-anon indacting that it can be logged into anonymously, we use this information to log on and find that there a file laying around called PUBLIC_NOTICE.txt which is letting everyone know that there will be a service on the server. Whoever wrote this used FTP to share it accros a large platform and at the bottom of this note he left his name, "Mike" which we can safly assume is his log in username once we have this infomration we run a Hydra brute force attack to crack his password [SYNATX for hydra hydra -t 4 -l dale -P /usr/share/wordlists/rockyou.txt -vV 10.10.10.6 ftp]
 Ip will vary from thr machine you are attacking along with the -l which is the username [so from dale ---> mike]. once this is completed we have his password and full access for the machine and sever.  
 
-Syntax for FTP for a server is [ ftp [ip] ]
+Syntax to FTP to a server is [ ftp [ip] ]
 
 --------------------------- Water down but idea and excution along side with synatx is there ---------------------------------------
 
@@ -196,6 +196,115 @@ What is NFS?
 NFS stands for "Network File System" and allows a system to share directories and files with others over a network. By using NFS, users and programs can access files on remote systems almost as if they were local files. It does this by mounting all, or a portion of a file system on a server. The portion of the file system that is mounted can be accessed by clients with whatever privileges are assigned to each file.
 
 
+______________________
+
+
+SQL 
+
+MySQL is likely not going to be the first point of call when getting initial information about the server. You can, as we have in previous tasks, attempt to brute-force default account passwords if you really don't have any other information; however, in most CTF scenarios, this is unlikely to be the avenue you're meant to pursue.
+
+
+
+
+Typically, you will have gained some initial credentials from enumerating other services that you can then use to enumerate and exploit the MySQL service. As this room focuses on exploiting and enumerating the network service, for the sake of the scenario, we're going to assume that you found the credentials: "root:password" while enumerating subdomains of a web server. After trying the login against SSH unsuccessfully, you decide to try it against MySQL.
+
+
+---- Note; SQL is famously used by facebook ----
+
+
+
+Procces to ssh into machine using SQL:
+
+
+you are going to want to use mettasploit and being able to naviagte the framework is crucial. First step is figuring out any users on the server which arent there by default. we found carl which seems unusual, and using this exploit from metaploit called mysql_hashdump we now have his hashed password. copy this into a file on your local machine to make it eaiser and run "john" ((which is a tool used to crack hases)) synatx ("john [file name]") which cracks his password. now we use out past knoledge of our Nmap to know theres an acticve ssh running then ssh using the info we just gained 
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------
+
+
+New room !!!!
+
+
+Metasploit fundamentals 
+
+
+
+Encoders
+
+Encoders will allow you to encode the exploit and payload in the hope that a signature-based antivirus solution may miss them.
+
+Signature-based antivirus and security solutions have a database of known threats. They detect threats by comparing suspicious files to this database and raise an alert if there is a match. Thus encoders can have a limited success rate as antivirus solutions can perform additional checks.
+
+
+
+
+Evasion
+
+While encoders will encode the payload, they should not be considered a direct attempt to evade antivirus software. On the other hand, “evasion” modules will try that, with more or less success.
+
+
+
+
+Exploits
+
+Exploits, neatly organized by target system.
+____
+Examples !
+______
+
+root@ip-10-10-135-188:/opt/metasploit-framework/embedded/framework/modules# tree -L 1 exploits/
+exploits/
+├── aix
+├── android
+├── apple_ios
+├── bsd
+├── bsdi
+├── dialup
+├── example_linux_priv_esc.rb
+├── example.py
+├── example.rb
+├── example_webapp.rb
+├── firefox
+├── freebsd
+├── hpux
+├── irix
+├── linux
+├── mainframe
+├── multi
+├── netware
+├── openbsd
+├── osx
+├── qnx
+├── solaris
+├── unix
+└── windows
+
+20 directories, 4 files
+
+
+
+
+NOPs
+
+NOPs (No OPeration) do nothing, literally. They are represented in the Intel x86 CPU family with 0x90, following which the CPU will do nothing for one cycle. They are often used as a buffer to achieve consistent payload sizes.
+
+
+
+
+Payloads
+
+Payloads are codes that will run on the target system.
+
+Exploits will leverage a vulnerability on the target system, but to achieve the desired result, we will need a payload. Examples could be; getting a shell, loading a malware or backdoor to the target system, running a command, or launching calc.exe 
 
 
 
