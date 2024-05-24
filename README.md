@@ -307,7 +307,49 @@ Payloads are codes that will run on the target system.
 Exploits will leverage a vulnerability on the target system, but to achieve the desired result, we will need a payload. Examples could be; getting a shell, loading a malware or backdoor to the target system, running a command, or launching calc.exe 
 
 
+_------------------------------------------
 
+
+
+New Topic !!!!
+
+WEBHACKING 
+
+
+
+Room
+___________
+
+HTTP in detail
+---------------
+
+
+What is HTTP? (HyperText Transfer Protocol)
+
+HTTP is what's used whenever you view a website, developed by Tim Berners-Lee and his team between 1989-1991. HTTP is the set of rules used for communicating with web servers for the transmitting of webpage data, whether that is HTML, Images, Videos, etc.
+
+What is HTTPS? (HyperText Transfer Protocol Secure)
+
+HTTPS is the secure version of HTTP. HTTPS data is encrypted so it not only stops people from seeing the data you are receiving and sending, but it also gives you assurances that you're talking to the correct web server and not something impersonating it.
+
+
+Diffrence between diffrent type of Http methods:
+---------------
+GET Request
+
+This is used for getting information from a web server.
+
+POST Request
+
+This is used for submitting data to the web server and potentially creating new records
+
+PUT Request
+
+This is used for submitting data to a web server to update information
+
+DELETE Request
+
+This is used for deleting information/records from a web server.
 
 
 
